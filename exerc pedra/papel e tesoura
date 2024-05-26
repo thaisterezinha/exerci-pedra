@@ -1,0 +1,46 @@
+class Jogador():
+  def _init_(self,nome):
+    self.nome=nome
+    self.jogando=""
+    self.resultado=""
+
+  def Jogar(self):
+    numero=int(input("Digite o numero"))
+    n1=int(input("Digite 1 para jogar pedra"))
+    n2=int(input("Digite 2 para jogar papel"))
+    n3=int(input("Digite 3 para jogar tesoura"))
+
+    while numero<1 or numero>3:
+      numero=int(input("Voce digitou o numero invalido,digite o \n1 para jogar pedra\n2 para jogar papel\n3 para jogar tesoura\n "))
+    if numero ==1:
+      self.jogando="pedra"
+    elif numero ==2:
+      self.jogando="papel"
+    elif numero == 3:
+      self.jogando="tesoura"
+    print(self.nome,"jogou",self.jogando)
+
+j1=Jogador()
+j1.Jogar()
+j2=Jogador()
+j2.Jogar()
+
+if j1.jogando== "pedra" and j2.jogando== "papel":
+  j1.resultado="perdeu"
+  j2.resultado="vendeu"
+  print(j1.nome,j1.resultado,"contra",j2.nome)
+
+elif j1.jogando== "tesoura" and j2.jogando == "papel":
+  j2.resultado="perdeu"
+  j1.resultado="venceu"
+  print(j1.nome,j1.resultado,"contra",j2.nome)
+
+elif j1.jogando == "pedra" and j2.jogando == "tesoura":
+  j1.resultado="venceu"
+  j2.resultado="perdeu"
+  print(j1.nome,j1.resultado,"contra",j2.nome)
+
+
+
+elif j1.jogando==j2.jogando:
+  print("O jogo deu empate")
